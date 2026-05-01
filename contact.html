@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Contact Us - AKTU Previous Year Papers | aktupapers.com</title>
+    <meta name="description" content="Get in touch with AKTU Papers team. For DMCA takedown, paper contributions, feedback, or support – email us or fill the contact form.">
+    <meta name="keywords" content="contact AKTU papers, AKTU support, submit previous year papers, AKTU query">
+    <meta name="author" content="AKTU Papers">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.aktupapers.com/contact.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact AKTU Papers Team">
+    <meta property="og:description" content="Reach out for questions, paper contributions, or copyright issues.">
+    <meta property="og:image" content="https://www.aktupapers.com/contact-og.jpg">
+    <meta property="og:url" content="https://www.aktupapers.com/contact.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact AKTU Papers">
+    <meta name="twitter:description" content="We'd love to hear from you!">
+    
+    <!-- Schema.org for ContactPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact AKTU Papers",
+        "url": "https://www.aktupapers.com/contact.html",
+        "description": "Contact page for AKTU previous year papers platform.",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "AKTU Papers",
+            "email": "info@aktupapers.com",
+            "url": "https://www.aktupapers.com",
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "email": "dmca@aktupapers.com",
+                    "contactType": "DMCA Takedown"
+                },
+                {
+                    "@type": "ContactPoint",
+                    "email": "contribute@aktupapers.com",
+                    "contactType": "Paper Contribution"
+                },
+                {
+                    "@type": "ContactPoint",
+                    "email": "info@aktupapers.com",
+                    "contactType": "General Support"
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-header h1 {
+            font-size: 2.5rem;
+            color: #0c4a6e;
+            margin-bottom: 10px;
+        }
+
+        .contact-header p {
+            font-size: 1.2rem;
+            color: #334155;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Contact Info Cards */
+        .info-card {
+            background: white;
+            border-radius: 28px;
+            padding: 25px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .info-card h2 {
+            color: #1e3a8a;
+            font-size: 1.6rem;
+            border-left: 5px solid #f97316;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            min-width: 45px;
+        }
+
+        .contact-text {
+            word-break: break-all;
+        }
+
+        .contact-text a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+
+        .copy-btn {
+            background: #e2e8f0;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .copy-btn:hover {
+            background: #cbd5e1;
+        }
+
+        /* Form Styling */
+        .form-card {
+            background: white;
+            border-radius: 28px;
+            padding: 30px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+        }
+
+        .form-card h2 {
+            color: #1e3a8a;
+            font-size: 1.6rem;
+            border-left: 5px solid #f97316;
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249,115,22,0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button[type="submit"] {
+            background: #0c4a6e;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background: #f97316;
+        }
+
+        .form-footer {
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 20px;
+            color: #475569;
+        }
+
+        /* Map placeholder */
+        .map-placeholder {
+            background: #e2e8f0;
+            border-radius: 24px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            background-image: url('https://via.placeholder.com/600x250?text=AKTU+Location+Map');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert-success {
+            background: #dcfce7;
+            color: #166534;
+            border-left: 5px solid #22c55e;
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 5px solid #ef4444;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid #cbd5e1;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+<div class="contact-wrapper">
+    <div class="contact-header">
+        <h1>📞 Contact AKTU Papers</h1>
+        <p>We're here to help! Reach out for any query, paper contribution, or DMCA issue.</p>
+    </div>
+
+    <div class="contact-grid">
+        <!-- Left Side: Contact Info -->
+        <div>
+            <div class="info-card">
+                <h2>📧 Email Us Directly</h2>
+                <div class="contact-detail">
+                    <div class="contact-icon">📩</div>
+                    <div class="contact-text">
+                        <strong>General Support:</strong><br>
+                        <a href="mailto:aktupapers.official@gmail.com">aktupapers.official@gmail.com</a>
+                        <button class="copy-btn" onclick="copyToClipboard('aktupapers.official@gmail.com')">Copy</button>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">⚖️</div>
+                    <div class="contact-text">
+                        <strong>DMCA / Copyright:</strong><br>
+                        <a href="aktupapers.official@gmail.com">aktupapers.official@gmail.com</a>
+                        <button class="copy-btn" onclick="copyToClipboard('aktupapers.official@gmail.com')">Copy</button>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">📤</div>
+                    <div class="contact-text">
+                        <strong>Contribute Papers:</strong><br>
+                        <a href="aktupapers.official@gmail.com">aktupapers.offficial@.com</a>
+                        <button class="copy-btn" onclick="copyToClipboard('aktupapers.official@gmail.com')">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+           
+               
+               
+            </div>
+
+           
+                <!-- Simple map placeholder (you can replace with actual iframe) -->
+                <div class="map-placeholder">
+                    🗺️ AKTU Main Campus Map (Coming Soon)
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Contact Form -->
+        <div class="form-card">
+            <h2>✉️ Send Message</h2>
+            <div id="formAlert" class="alert"></div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="e.g. Rahul Sharma">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select  name="subject" required>
+                        <option value="" disabled selected>-- Select Topic --</option>
+                        <option>General Query / Feedback</option>
+                        <option>Paper Contribution</option>
+                        <option>DMCA / Copyright Issue</option>
+                        <option>Technical Problem on Website</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+                </div>
+                <button type="submit">Send Message ➤</button>
+                <div class="form-footer">
+                    We'll reply within 2-3 business days. Your data is safe.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 AKTU Papers | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/dmca.html">DMCA</a></p>
+        <p>📞 Need urgent help? DM on Telegram: @aktupapers_bot (response within 12 hours). This webside not AKTU Official </p>
+    </footer>
+</div>
+
+<script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert("✅ Copied: " + text);
+        }).catch(() => {
+            alert("⚠️ Please copy manually: " + text);
+        });
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const alertDiv = document.getElementById('formAlert');
+        
+        // Basic validation
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value.trim();
+        
+        if (!name || !email || !subject || !message) {
+            alertDiv.className = 'alert alert-error';
+            alertDiv.style.display = 'block';
+            alertDiv.innerText = '❌ Please fill all required fields.';
+            return;
+        }
+        
+        if (!email.includes('@') || !email.includes('.')) {
+            alertDiv.className = 'alert alert-error';
+            alertDiv.style.display = 'block';
+            alertDiv.innerText = '❌ Please enter a valid email address.';
+            return;
+        }
+        
+        // Simulate sending (you can replace with actual backend)
+        alertDiv.className = 'alert alert-success';
+        alertDiv.style.display = 'block';
+        alertDiv.innerText = '✅ Message sent! We will get back to you soon. (Demo mode)';
+        
+        // For real implementation, send via AJAX to a PHP script etc.
+        // Clear form if you want
+        // document.getElementById('contactForm').reset();
+        
+        // Optionally redirect or just show success
+        setTimeout(() => {
+            alertDiv.style.display = 'none';
+        }, 5000);
+    });
+</script>
+</body>
+</html>
