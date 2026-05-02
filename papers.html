@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKTU Question Papers — All Courses Download</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Noto+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f1a;
+    --surface: #141728;
+    --card: #1a1f35;
+    --border: #252d4a;
+    --accent: #f97316;
+    --accent2: #3b82f6;
+    --accent3: #22c55e;
+    --accent4: #a855f7;
+    --accent5: #ec4899;
+    --accent6: #14b8a6;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --glow: rgba(249,115,22,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans', sans-serif;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -20%, rgba(249,115,22,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 90% 80%, rgba(59,130,246,0.05) 0%, transparent 60%);
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 80%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(249,115,22,0.12);
+    border: 1px solid rgba(249,115,22,0.3);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 14px;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+  }
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* SEARCH */
+  .search-wrap {
+    max-width: 480px;
+    margin: 36px auto 10px;
+    padding: 0 20px;
+    position: relative;
+  }
+  .search-wrap input {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 20px 14px 46px;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: 'Noto Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-wrap input:focus { border-color: var(--accent); }
+  .search-wrap::before {
+    content: '🔍';
+    position: absolute;
+    left: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+  }
+
+  /* MAIN GRID */
+  .main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin: 40px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 14px;
+  }
+
+  /* COURSE CARD */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--card-accent, var(--accent));
+    box-shadow: 0 8px 32px var(--card-glow, var(--glow));
+  }
+  .card-header {
+    padding: 18px 18px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--card-bg, rgba(249,115,22,0.12));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .card-info h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .card-info p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .card-body {
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .branch-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .branch-tag {
+    font-size: 0.7rem;
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .branch-tag:hover {
+    background: var(--card-bg, rgba(249,115,22,0.12));
+    color: var(--card-accent, var(--accent));
+    border-color: var(--card-accent, var(--accent));
+  }
+  .main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    background: var(--card-bg, rgba(249,115,22,0.08));
+    border: 1px solid var(--card-border, rgba(249,115,22,0.2));
+    border-radius: 9px;
+    color: var(--card-accent, var(--accent));
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 4px;
+  }
+  .main-btn:hover {
+    background: var(--card-bg-h, rgba(249,115,22,0.16));
+    transform: scale(1.01);
+  }
+  .main-btn .arrow {
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+  }
+  .main-btn:hover .arrow { transform: translateX(4px); }
+
+  /* Color variants */
+  .orange { --card-accent: #f97316; --card-bg: rgba(249,115,22,0.1); --card-bg-h: rgba(249,115,22,0.18); --card-border: rgba(249,115,22,0.25); --card-glow: rgba(249,115,22,0.12); }
+  .blue   { --card-accent: #3b82f6; --card-bg: rgba(59,130,246,0.1);  --card-bg-h: rgba(59,130,246,0.18);  --card-border: rgba(59,130,246,0.25);  --card-glow: rgba(59,130,246,0.12); }
+  .green  { --card-accent: #22c55e; --card-bg: rgba(34,197,94,0.1);   --card-bg-h: rgba(34,197,94,0.18);   --card-border: rgba(34,197,94,0.25);   --card-glow: rgba(34,197,94,0.12); }
+  .purple { --card-accent: #a855f7; --card-bg: rgba(168,85,247,0.1);  --card-bg-h: rgba(168,85,247,0.18);  --card-border: rgba(168,85,247,0.25);  --card-glow: rgba(168,85,247,0.12); }
+  .pink   { --card-accent: #ec4899; --card-bg: rgba(236,72,153,0.1);  --card-bg-h: rgba(236,72,153,0.18);  --card-border: rgba(236,72,153,0.25);  --card-glow: rgba(236,72,153,0.12); }
+  .teal   { --card-accent: #14b8a6; --card-bg: rgba(20,184,166,0.1);  --card-bg-h: rgba(20,184,166,0.18);  --card-border: rgba(20,184,166,0.25);  --card-glow: rgba(20,184,166,0.12); }
+  .yellow { --card-accent: #eab308; --card-bg: rgba(234,179,8,0.1);   --card-bg-h: rgba(234,179,8,0.18);   --card-border: rgba(234,179,8,0.25);   --card-glow: rgba(234,179,8,0.12); }
+  .red    { --card-accent: #ef4444; --card-bg: rgba(239,68,68,0.1);   --card-bg-h: rgba(239,68,68,0.18);   --card-border: rgba(239,68,68,0.25);   --card-glow: rgba(239,68,68,0.12); }
+
+  /* NEW badge */
+  .new-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--accent3);
+    color: #000;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* Hidden */
+  .card.hidden { display: none; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .grid { grid-template-columns: 1fr; }
+    .stats-row { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">📚 AKTU University — Lucknow, UP</div>
+  <h1>Question Papers<br>Direct Download</h1>
+  <p>सभी Courses के Previous Year Question Papers एक ही जगह। Semester-wise, Branch-wise Free Download करें।</p>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Courses</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Semesters</div></div>
+    <div class="stat"><div class="stat-num">2011–2025</div><div class="stat-label">Years Covered</div></div>
+    <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Download</div></div>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <input type="text" id="search" placeholder="Course search karo... (B.Tech, MBA, MCA...)" oninput="filterCards()">
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main" id="cardContainer">
+
+  <!-- ══ B.TECH ══ -->
+  <div class="section-title">🎓 B.Tech — Bachelor of Technology</div>
+  <div class="grid">
+
+    <!-- First Year -->
+    <div class="card orange" data-name="btech first year 1st 2nd semester">
+      <div class="new-badge">NEW</div>
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(249,115,22,0.15)">📘</div>
+        <div class="card-info">
+          <h3>B.Tech — 1st Year</h3>
+          <p>1st & 2nd Semester • All Branches • 2011–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Sem 1</span><span class="branch-tag">Sem 2</span>
+          <span class="branch-tag">Maths</span><span class="branch-tag">Physics</span>
+          <span class="branch-tag">Chemistry</span><span class="branch-tag">All Branches</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/aktu-first-year-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- CS/IT -->
+    <div class="card blue" data-name="btech cse computer science cs it information technology">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15)">💻</div>
+        <div class="card-info">
+          <h3>B.Tech — CSE / CS</h3>
+          <p>Computer Science • Sem 3–8 • 2011–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">DSA</span><span class="branch-tag">DBMS</span>
+          <span class="branch-tag">OS</span><span class="branch-tag">CN</span>
+          <span class="branch-tag">Compiler</span><span class="branch-tag">AI/ML</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-cse-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- IT -->
+    <div class="card blue" data-name="btech it information technology">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15)">🖥️</div>
+        <div class="card-info">
+          <h3>B.Tech — IT</h3>
+          <p>Information Technology • Sem 3–8 • 2011–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Web Tech</span><span class="branch-tag">Software Engg</span>
+          <span class="branch-tag">Networks</span><span class="branch-tag">Data Mining</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-it-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- EC -->
+    <div class="card green" data-name="btech ec electronics communication ece">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15)">📡</div>
+        <div class="card-info">
+          <h3>B.Tech — EC / ECE</h3>
+          <p>Electronics & Communication • Sem 3–8 • 2011–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Signals</span><span class="branch-tag">EMF</span>
+          <span class="branch-tag">Digital Electronics</span><span class="branch-tag">VLSI</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-ec-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- EE -->
+    <div class="card yellow" data-name="btech ee electrical engineering">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(234,179,8,0.15)">⚡</div>
+        <div class="card-info">
+          <h3>B.Tech — EE</h3>
+          <p>Electrical Engineering • Sem 3–8 • 2011–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Power Systems</span><span class="branch-tag">Machines</span>
+          <span class="branch-tag">Control</span><span class="branch-tag">EMF</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-ee-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- EEE -->
+    <div class="card yellow" data-name="btech eee electrical electronics engineering">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(234,179,8,0.15)">🔌</div>
+        <div class="card-info">
+          <h3>B.Tech — EEE</h3>
+          <p>Electrical & Electronics Engg. • Sem 3–8</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Power Electronics</span><span class="branch-tag">Drives</span>
+          <span class="branch-tag">Instrumentation</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-eee-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ME -->
+    <div class="card red" data-name="btech me mechanical engineering">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15)">⚙️</div>
+        <div class="card-info">
+          <h3>B.Tech — ME</h3>
+          <p>Mechanical Engineering • Sem 3–8 • 2011–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Thermodynamics</span><span class="branch-tag">Fluid</span>
+          <span class="branch-tag">Manufacturing</span><span class="branch-tag">CAD/CAM</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-me-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- CE -->
+    <div class="card teal" data-name="btech ce civil engineering">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(20,184,166,0.15)">🏗️</div>
+        <div class="card-info">
+          <h3>B.Tech — CE</h3>
+          <p>Civil Engineering • Sem 3–8 • 2011–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Structural</span><span class="branch-tag">Geo-tech</span>
+          <span class="branch-tag">Hydraulics</span><span class="branch-tag">Transport</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-ce-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- EN -->
+    <div class="card green" data-name="btech en environmental engineering">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15)">🌿</div>
+        <div class="card-info">
+          <h3>B.Tech — EN</h3>
+          <p>Environmental Engineering • Sem 3–8</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Eco Engg</span><span class="branch-tag">Water</span>
+          <span class="branch-tag">Pollution</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-en-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- CHE -->
+    <div class="card purple" data-name="btech che chemical engineering">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(168,85,247,0.15)">🧪</div>
+        <div class="card-info">
+          <h3>B.Tech — CHE</h3>
+          <p>Chemical Engineering • Sem 3–8</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Thermodynamics</span><span class="branch-tag">Reaction Engg</span>
+          <span class="branch-tag">Mass Transfer</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-che-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Agriculture -->
+    <div class="card green" data-name="btech agriculture agri ag">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15)">🌾</div>
+        <div class="card-info">
+          <h3>B.Tech — Agriculture</h3>
+          <p>Agricultural Engineering • Sem 1–8 • 2016–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Soil Engg</span><span class="branch-tag">Farm Machinery</span>
+          <span class="branch-tag">Irrigation</span><span class="branch-tag">Post Harvest</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-ag-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- BioTech -->
+    <div class="card pink" data-name="btech bt biotechnology biotech">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(236,72,153,0.15)">🧬</div>
+        <div class="card-info">
+          <h3>B.Tech — BT (Biotechnology)</h3>
+          <p>Biotechnology • Sem 3–8 • 2011–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Biochemistry</span><span class="branch-tag">Microbiology</span>
+          <span class="branch-tag">Genetics</span><span class="branch-tag">Immunology</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-bt-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Textile -->
+    <div class="card orange" data-name="btech tt textile technology">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(249,115,22,0.15)">🧵</div>
+        <div class="card-info">
+          <h3>B.Tech — TT (Textile)</h3>
+          <p>Textile Technology • Sem 3–8</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Yarn Tech</span><span class="branch-tag">Fabric</span>
+          <span class="branch-tag">Chemical Processing</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-tt-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Others/Open Electives -->
+    <div class="card teal" data-name="btech open elective common others">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(20,184,166,0.15)">📂</div>
+        <div class="card-info">
+          <h3>B.Tech — Open Elective / Common</h3>
+          <p>OE, AS, VE, HU Subjects • All Branches</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Open Elective</span><span class="branch-tag">Maths 3/4</span>
+          <span class="branch-tag">Human Values</span><span class="branch-tag">Environment</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/btech-others-question-papers.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /grid btech -->
+
+
+  <!-- ══ POSTGRADUATE ══ -->
+  <div class="section-title">🎓 Postgraduate (PG) Courses</div>
+  <div class="grid">
+
+    <!-- MBA -->
+    <div class="card purple" data-name="mba master business administration management">
+      <div class="new-badge">NEW</div>
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(168,85,247,0.15)">💼</div>
+        <div class="card-info">
+          <h3>MBA</h3>
+          <p>Master of Business Administration • Sem 1–4 • MBA Integrated</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Marketing</span><span class="branch-tag">Finance</span>
+          <span class="branch-tag">HR</span><span class="branch-tag">Operations</span>
+          <span class="branch-tag">MBA Integrated</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/mba.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MCA -->
+    <div class="card blue" data-name="mca master computer applications mca">
+      <div class="new-badge">NEW</div>
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15)">🖱️</div>
+        <div class="card-info">
+          <h3>MCA</h3>
+          <p>Master of Computer Applications • Sem 1–6 • 2017–2026</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Discrete Maths</span><span class="branch-tag">DBMS</span>
+          <span class="branch-tag">Python</span><span class="branch-tag">Data Structures</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/mca.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- M.Tech -->
+    <div class="card orange" data-name="mtech master technology mechanical electrical computer">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(249,115,22,0.15)">🔬</div>
+        <div class="card-info">
+          <h3>M.Tech</h3>
+          <p>Master of Technology • Sem 1–4 • 2009–2025</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">CS</span><span class="branch-tag">EC</span>
+          <span class="branch-tag">ME</span><span class="branch-tag">EE</span>
+          <span class="branch-tag">BT</span><span class="branch-tag">All Specializations</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/mtech.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MAM -->
+    <div class="card teal" data-name="mam master arts management">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(20,184,166,0.15)">📊</div>
+        <div class="card-info">
+          <h3>MAM</h3>
+          <p>Master of Arts in Management • Sem 1–4 • 2015+</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Management</span><span class="branch-tag">Business Maths</span>
+          <span class="branch-tag">English</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/mam.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- M.Arch -->
+    <div class="card red" data-name="march master architecture design">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15)">🏛️</div>
+        <div class="card-info">
+          <h3>M.Arch</h3>
+          <p>Master of Architecture • Sem 1–4</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Urban Design</span><span class="branch-tag">History</span>
+          <span class="branch-tag">Thesis</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/march.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /grid pg -->
+
+
+  <!-- ══ PHARMACY ══ -->
+  <div class="section-title">💊 Pharmacy Courses</div>
+  <div class="grid">
+
+    <!-- B.Pharm -->
+    <div class="card green" data-name="bpharm bpharmacy pharmacy b pharm">
+      <div class="new-badge">NEW</div>
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15)">💊</div>
+        <div class="card-info">
+          <h3>B.Pharm</h3>
+          <p>Bachelor of Pharmacy • Sem 1–8 • 2018–2024</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Pharmaceutics</span><span class="branch-tag">Pharmacology</span>
+          <span class="branch-tag">Biochemistry</span><span class="branch-tag">Pharmacognosy</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/bpharm.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- M.Pharm -->
+    <div class="card teal" data-name="mpharm mpharmacy m pharm master pharmacy">
+      <div class="new-badge">NEW</div>
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(20,184,166,0.15)">🧫</div>
+        <div class="card-info">
+          <h3>M.Pharm</h3>
+          <p>Master of Pharmacy • Sem 1–4 • 2021–2026</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Drug Delivery</span><span class="branch-tag">Medicinal Chem</span>
+          <span class="branch-tag">Regulatory</span><span class="branch-tag">Pharmacognosy</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/mpharmacy.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /grid pharmacy -->
+
+
+  <!-- ══ ARCHITECTURE & DESIGN ══ -->
+  <div class="section-title">🏛️ Architecture & Design Courses</div>
+  <div class="grid">
+
+    <!-- B.Arch -->
+    <div class="card red" data-name="barch bachelor architecture design planning">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15)">🏗️</div>
+        <div class="card-info">
+          <h3>B.Arch</h3>
+          <p>Bachelor of Architecture • Sem 1–10</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Design Studio</span><span class="branch-tag">Structures</span>
+          <span class="branch-tag">History</span><span class="branch-tag">Building Science</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/barch.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- BFA -->
+    <div class="card pink" data-name="bfa bachelor fine arts art painting sculpture">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(236,72,153,0.15)">🎨</div>
+        <div class="card-info">
+          <h3>BFA</h3>
+          <p>Bachelor of Fine Arts • Sem 1–8</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Painting</span><span class="branch-tag">Sculpture</span>
+          <span class="branch-tag">Applied Arts</span><span class="branch-tag">Printmaking</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/bfa.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- BFAD -->
+    <div class="card pink" data-name="bfad bachelor fashion apparel design">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(236,72,153,0.15)">👗</div>
+        <div class="card-info">
+          <h3>BFAD</h3>
+          <p>Bachelor of Fashion & Apparel Design • Sem 1–8</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Fashion Illustration</span><span class="branch-tag">Textile</span>
+          <span class="branch-tag">Pattern Making</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/bfad.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- BHMCT -->
+    <div class="card orange" data-name="bhmct hotel management catering technology hospitality">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(249,115,22,0.15)">🏨</div>
+        <div class="card-info">
+          <h3>BHMCT</h3>
+          <p>Hotel Mgmt. & Catering Technology • Sem 1–8</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="branch-links">
+          <span class="branch-tag">Food Production</span><span class="branch-tag">F&B Service</span>
+          <span class="branch-tag">Housekeeping</span><span class="branch-tag">Front Office</span>
+        </div>
+        <a class="main-btn" href="https://www.aktuonline.com/bhmct.html" target="_blank">
+          📥 Open & Download Papers <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /grid arch -->
+
+  <!-- NO RESULTS -->
+  <div id="noResult" style="display:none; text-align:center; padding:60px 20px; color:var(--muted);">
+    <div style="font-size:3rem; margin-bottom:12px;">🔍</div>
+    <div style="font-size:1.1rem;">Koi course nahi mila. Alag keyword try karo.</div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer>
+  <p>Sabhi papers <strong style="color:var(--accent)">aktuonline.com</strong> se directly download hote hain &mdash; Free &amp; No Login Required.<br>
+  <a href="https://www.aktuonline.com/" target="_blank">🌐 aktuonline.com visit karein</a> &nbsp;|&nbsp;
+  <a href="https://aktu.ac.in" target="_blank">🎓 AKTU Official Site</a></p>
+</footer>
+
+<script>
+function filterCards() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  const sections = document.querySelectorAll('.section-title');
+  let anyVisible = false;
+
+  cards.forEach(card => {
+    const name = (card.dataset.name || '') + ' ' + (card.innerText || '');
+    if (!q || name.toLowerCase().includes(q)) {
+      card.classList.remove('hidden');
+      anyVisible = true;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  // Show/hide section titles based on whether next grid has visible cards
+  sections.forEach(section => {
+    const grid = section.nextElementSibling;
+    if (grid) {
+      const visible = grid.querySelectorAll('.card:not(.hidden)');
+      section.style.display = (!q || visible.length > 0) ? '' : 'none';
+    }
+  });
+
+  document.getElementById('noResult').style.display = anyVisible ? 'none' : 'block';
+}
+</script>
+</body>
+</html>
