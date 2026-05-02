@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKTU Study Hub — Papers • Syllabus • Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080b14;
+  --surface: #0e1220;
+  --card: #131826;
+  --card2: #161c2e;
+  --border: #1e2740;
+  --border2: #252f4a;
+  --t1: #e8edf8;
+  --t2: #8b95b0;
+  --t3: #4a5470;
+  --orange: #f97316;
+  --blue: #4f8ef7;
+  --green: #22c55e;
+  --purple: #9b5de5;
+  --pink: #e94fb7;
+  --teal: #0dcfba;
+  --yellow: #f5c518;
+  --red: #f43f5e;
+  --sky: #38bdf8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  background: var(--bg);
+  color: var(--t1);
+  font-family: 'Noto Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 52px 24px 0;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% -30%, rgba(79,142,247,.13) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 60% at 15% 110%, rgba(249,115,22,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at 85% 110%, rgba(155,93,229,.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+.university-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(79,142,247,.1);
+  border: 1px solid rgba(79,142,247,.25);
+  color: var(--blue);
+  font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  font-weight: 700; line-height: 1.1; margin-bottom: 10px;
+  background: linear-gradient(135deg, #fff 0%, var(--blue) 55%, var(--purple) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  color: var(--t2); font-size: .95rem; max-width: 520px;
+  margin: 0 auto 28px; line-height: 1.7;
+}
+.pill-row {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 36px;
+}
+.pill {
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border2);
+  color: var(--t2); font-size: .72rem; font-weight: 600;
+  letter-spacing: .5px; padding: 4px 12px; border-radius: 30px;
+}
+
+/* ─── SEARCH ─── */
+.search-bar {
+  max-width: 520px; margin: 0 auto 0; padding: 0 20px;
+  position: relative;
+}
+.search-bar input {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--border2);
+  border-radius: 14px;
+  padding: 13px 20px 13px 48px;
+  color: var(--t1); font-size: .92rem;
+  font-family: 'Noto Sans',sans-serif; outline: none;
+  transition: border-color .2s;
+}
+.search-bar input:focus { border-color: var(--blue); }
+.search-bar .s-icon {
+  position: absolute; left: 36px; top: 50%; transform: translateY(-50%);
+  font-size: 17px; pointer-events: none;
+}
+
+/* ─── TABS ─── */
+.tabs-wrap {
+  position: sticky; top: 0; z-index: 90;
+  background: rgba(8,11,20,.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  margin-top: 30px;
+}
+.tabs {
+  max-width: 1340px; margin: 0 auto;
+  display: flex; padding: 0 20px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex-shrink: 0;
+  padding: 16px 22px;
+  background: none; border: none; cursor: pointer;
+  color: var(--t3); font-family: 'Noto Sans',sans-serif;
+  font-size: .88rem; font-weight: 600;
+  border-bottom: 2.5px solid transparent;
+  transition: color .2s, border-color .2s;
+  display: flex; align-items: center; gap: 7px;
+}
+.tab-btn:hover { color: var(--t2); }
+.tab-btn.active { color: var(--t1); border-bottom-color: var(--blue); }
+.tab-count {
+  background: rgba(79,142,247,.18);
+  color: var(--blue); font-size: .68rem; font-weight: 700;
+  padding: 1px 7px; border-radius: 10px;
+}
+
+/* ─── SECTION ─── */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.main { max-width: 1340px; margin: 0 auto; padding: 36px 20px 70px; }
+
+.group-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--t3);
+  margin: 42px 0 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.group-title::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px,1fr)); gap: 13px; }
+.grid-lg { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px,1fr)); gap: 13px; }
+
+/* ─── CARD ─── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+  transition: transform .18s, border-color .18s, box-shadow .2s;
+  position: relative;
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--c-accent, var(--blue));
+  box-shadow: 0 10px 36px var(--c-glow, rgba(79,142,247,.12));
+}
+.card-head {
+  padding: 17px 16px 13px;
+  display: flex; align-items: flex-start; gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.c-icon {
+  width: 44px; height: 44px; border-radius: 11px;
+  background: var(--c-ibg, rgba(79,142,247,.12));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 21px; flex-shrink: 0;
+}
+.c-title { font-family: 'Rajdhani',sans-serif; font-size: 1.05rem; font-weight: 700; }
+.c-sub { font-size: .73rem; color: var(--t2); line-height: 1.45; margin-top: 2px; }
+.card-body { padding: 13px 16px 14px; display: flex; flex-direction: column; gap: 9px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag {
+  font-size: .68rem; padding: 2px 8px;
+  border-radius: 5px; background: rgba(255,255,255,.04);
+  border: 1px solid var(--border); color: var(--t3);
+  text-decoration: none; transition: .15s;
+}
+.tag:hover {
+  background: var(--c-ibg, rgba(79,142,247,.1));
+  color: var(--c-accent, var(--blue));
+  border-color: var(--c-accent, var(--blue));
+}
+
+.dl-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 13px;
+  background: var(--c-ibg, rgba(79,142,247,.08));
+  border: 1px solid var(--c-border, rgba(79,142,247,.2));
+  border-radius: 9px; color: var(--c-accent, var(--blue));
+  text-decoration: none; font-weight: 700; font-size: .83rem;
+  transition: background .18s, transform .13s;
+}
+.dl-btn:hover { background: var(--c-ibg2, rgba(79,142,247,.16)); transform: scale(1.01); }
+.dl-btn .arr { font-size: .85rem; transition: transform .18s; }
+.dl-btn:hover .arr { transform: translateX(4px); }
+
+.new-tag {
+  position: absolute; top: 10px; right: 10px;
+  background: var(--green); color: #000;
+  font-size: 9px; font-weight: 800; letter-spacing: .8px;
+  padding: 2px 7px; border-radius: 4px;
+}
+
+/* Color defs */
+.co { --c-accent:var(--orange);--c-ibg:rgba(249,115,22,.1);--c-ibg2:rgba(249,115,22,.18);--c-border:rgba(249,115,22,.22);--c-glow:rgba(249,115,22,.1); }
+.cb { --c-accent:var(--blue);--c-ibg:rgba(79,142,247,.1);--c-ibg2:rgba(79,142,247,.18);--c-border:rgba(79,142,247,.22);--c-glow:rgba(79,142,247,.1); }
+.cg { --c-accent:var(--green);--c-ibg:rgba(34,197,94,.1);--c-ibg2:rgba(34,197,94,.18);--c-border:rgba(34,197,94,.22);--c-glow:rgba(34,197,94,.1); }
+.cp { --c-accent:var(--purple);--c-ibg:rgba(155,93,229,.1);--c-ibg2:rgba(155,93,229,.18);--c-border:rgba(155,93,229,.22);--c-glow:rgba(155,93,229,.1); }
+.ck { --c-accent:var(--pink);--c-ibg:rgba(233,79,183,.1);--c-ibg2:rgba(233,79,183,.18);--c-border:rgba(233,79,183,.22);--c-glow:rgba(233,79,183,.1); }
+.ct { --c-accent:var(--teal);--c-ibg:rgba(13,207,186,.1);--c-ibg2:rgba(13,207,186,.18);--c-border:rgba(13,207,186,.22);--c-glow:rgba(13,207,186,.1); }
+.cy { --c-accent:var(--yellow);--c-ibg:rgba(245,197,24,.1);--c-ibg2:rgba(245,197,24,.18);--c-border:rgba(245,197,24,.22);--c-glow:rgba(245,197,24,.1); }
+.cr { --c-accent:var(--red);--c-ibg:rgba(244,63,94,.1);--c-ibg2:rgba(244,63,94,.18);--c-border:rgba(244,63,94,.22);--c-glow:rgba(244,63,94,.1); }
+.cs { --c-accent:var(--sky);--c-ibg:rgba(56,189,248,.1);--c-ibg2:rgba(56,189,248,.18);--c-border:rgba(56,189,248,.22);--c-glow:rgba(56,189,248,.1); }
+
+/* ─── SYLLABUS WIDE CARD ─── */
+.syl-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+  transition: transform .18s, border-color .18s, box-shadow .2s;
+}
+.syl-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--c-accent, var(--blue));
+  box-shadow: 0 10px 36px var(--c-glow, rgba(79,142,247,.12));
+}
+.syl-card .card-head { border-bottom: 1px solid var(--border); }
+.syl-links { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.syl-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; flex-wrap: wrap;
+}
+.syl-label { font-size: .83rem; color: var(--t2); flex: 1; }
+.syl-dl {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 13px;
+  background: var(--c-ibg, rgba(79,142,247,.08));
+  border: 1px solid var(--c-border, rgba(79,142,247,.2));
+  border-radius: 8px; color: var(--c-accent, var(--blue));
+  text-decoration: none; font-weight: 700; font-size: .78rem;
+  white-space: nowrap; transition: background .15s;
+}
+.syl-dl:hover { background: var(--c-ibg2, rgba(79,142,247,.16)); }
+.divider { height: 1px; background: var(--border); margin: 4px 0; }
+
+/* ─── NOTES CARD ─── */
+.note-source {
+  display: inline-block;
+  font-size: .65rem; font-weight: 700; letter-spacing: 1px;
+  padding: 2px 8px; border-radius: 4px;
+  background: var(--c-ibg,rgba(79,142,247,.1));
+  color: var(--c-accent,var(--blue));
+  border: 1px solid var(--c-border,rgba(79,142,247,.2));
+  margin-bottom: 6px;
+}
+
+/* ─── NO RESULT ─── */
+#noResult {
+  display: none; text-align: center;
+  padding: 70px 20px; color: var(--t3);
+}
+#noResult .nr-icon { font-size: 3.5rem; margin-bottom: 12px; }
+#noResult p { font-size: 1rem; }
+
+/* ─── FOOTER ─── */
+footer {
+  text-align: center; padding: 28px 20px;
+  color: var(--t3); font-size: .78rem;
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--blue); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media(max-width:600px){
+  .hero h1{font-size:2rem;}
+  .grid,.grid-lg{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="university-tag">🏛️ Dr. A.P.J. Abdul Kalam Technical University, Lucknow</div>
+  <h1>AKTU Study Hub</h1>
+  <p class="hero-sub">
+    Question Papers, Syllabus aur Notes — sab ek jagah pe.<br>
+    B.Tech • MBA • MCA • M.Tech • B.Pharm aur zyada!
+  </p>
+  <div class="pill-row">
+    <span class="pill">📄 Previous Year Papers</span>
+    <span class="pill">📚 Syllabus PDF</span>
+    <span class="pill">📝 Subject Notes</span>
+    <span class="pill">🆓 100% Free</span>
+    <span class="pill">📥 Direct Download</span>
+    <span class="pill">2011–2026 Papers</span>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-bar">
+  <span class="s-icon">🔍</span>
+  <input type="text" id="searchBox" placeholder="Course ya subject search karo..." oninput="filterAll()">
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('papers',this)">📄 Question Papers <span class="tab-count">14+</span></button>
+    <button class="tab-btn" onclick="switchTab('syllabus',this)">📚 Syllabus <span class="tab-count">Official</span></button>
+    <button class="tab-btn" onclick="switchTab('notes',this)">📝 Notes & Study Material <span class="tab-count">All Courses</span></button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 1: QUESTION PAPERS
+══════════════════════════════════ -->
+<div id="tab-papers" class="tab-panel active">
+<div class="main">
+
+  <!-- B.TECH -->
+  <div class="group-title" data-g="btech">🎓 B.Tech — Bachelor of Technology (PYQ Papers)</div>
+  <div class="grid" id="grid-btech">
+
+    <div class="card cb" data-k="btech first year 1st 2nd sem common all branches">
+      <span class="new-tag">NEW 2025</span>
+      <div class="card-head">
+        <div class="c-icon">📘</div>
+        <div><div class="c-title">B.Tech — 1st Year</div><div class="c-sub">1st &amp; 2nd Sem • All Branches • 2011–2025</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Maths-1</span><span class="tag">Physics</span><span class="tag">Chemistry</span><span class="tag">Electrical</span><span class="tag">Mechanical</span><span class="tag">Soft Skills</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/aktu-first-year-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/btech.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card co" data-k="btech cse cs computer science information technology it">
+      <div class="card-head">
+        <div class="c-icon">💻</div>
+        <div><div class="c-title">B.Tech — CSE / CS</div><div class="c-sub">Computer Science Engineering • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">DSA</span><span class="tag">OS</span><span class="tag">DBMS</span><span class="tag">CN</span><span class="tag">Compiler</span><span class="tag">AI/ML</span><span class="tag">TOC</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-cse-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card co" data-k="btech it information technology">
+      <div class="card-head">
+        <div class="c-icon">🖥️</div>
+        <div><div class="c-title">B.Tech — IT</div><div class="c-sub">Information Technology • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Web Tech</span><span class="tag">Software Engg</span><span class="tag">Networks</span><span class="tag">Data Mining</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-it-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cg" data-k="btech ec ece electronics communication">
+      <div class="card-head">
+        <div class="c-icon">📡</div>
+        <div><div class="c-title">B.Tech — EC / ECE</div><div class="c-sub">Electronics &amp; Communication • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Signals</span><span class="tag">EMF</span><span class="tag">VLSI</span><span class="tag">Digital Electronics</span><span class="tag">Microprocessor</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-ec-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cy" data-k="btech ee electrical engineering">
+      <div class="card-head">
+        <div class="c-icon">⚡</div>
+        <div><div class="c-title">B.Tech — EE</div><div class="c-sub">Electrical Engineering • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Power Systems</span><span class="tag">Machines</span><span class="tag">Control</span><span class="tag">EMF</span><span class="tag">Drives</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-ee-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cy" data-k="btech eee electrical electronics engineering">
+      <div class="card-head">
+        <div class="c-icon">🔌</div>
+        <div><div class="c-title">B.Tech — EEE</div><div class="c-sub">Electrical &amp; Electronics Engg. • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Power Electronics</span><span class="tag">Instrumentation</span><span class="tag">Microprocessor</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-eee-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cr" data-k="btech me mechanical engineering">
+      <div class="card-head">
+        <div class="c-icon">⚙️</div>
+        <div><div class="c-title">B.Tech — ME</div><div class="c-sub">Mechanical Engineering • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Thermodynamics</span><span class="tag">Fluid</span><span class="tag">Manufacturing</span><span class="tag">CAD/CAM</span><span class="tag">Material</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-me-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card ct" data-k="btech ce civil engineering">
+      <div class="card-head">
+        <div class="c-icon">🏗️</div>
+        <div><div class="c-title">B.Tech — CE</div><div class="c-sub">Civil Engineering • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Structural</span><span class="tag">Geo-Tech</span><span class="tag">Hydraulics</span><span class="tag">Transportation</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-ce-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card ck" data-k="btech bt biotechnology">
+      <div class="card-head">
+        <div class="c-icon">🧬</div>
+        <div><div class="c-title">B.Tech — BT (Biotechnology)</div><div class="c-sub">Biotechnology Engineering • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Biochemistry</span><span class="tag">Microbiology</span><span class="tag">Genetics</span><span class="tag">Immunology</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-bt-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cg" data-k="btech en environmental engineering">
+      <div class="card-head">
+        <div class="c-icon">🌿</div>
+        <div><div class="c-title">B.Tech — EN</div><div class="c-sub">Environmental Engineering • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Ecology</span><span class="tag">Water</span><span class="tag">Pollution Control</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-en-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cp" data-k="btech che chemical engineering">
+      <div class="card-head">
+        <div class="c-icon">🧪</div>
+        <div><div class="c-title">B.Tech — CHE</div><div class="c-sub">Chemical Engineering • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Thermodynamics</span><span class="tag">Reaction Engg</span><span class="tag">Mass Transfer</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-che-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cg" data-k="btech agriculture agri ag">
+      <div class="card-head">
+        <div class="c-icon">🌾</div>
+        <div><div class="c-title">B.Tech — AGRI</div><div class="c-sub">Agricultural Engineering • Sem 1–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Farm Machinery</span><span class="tag">Irrigation</span><span class="tag">Soil</span><span class="tag">Post Harvest</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-ag-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card co" data-k="btech tt textile technology">
+      <div class="card-head">
+        <div class="c-icon">🧵</div>
+        <div><div class="c-title">B.Tech — TT (Textile)</div><div class="c-sub">Textile Technology • Sem 3–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Yarn Tech</span><span class="tag">Fabric</span><span class="tag">Dyeing</span><span class="tag">Processing</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-tt-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card ct" data-k="btech open elective common oe as ve hu">
+      <div class="card-head">
+        <div class="c-icon">📂</div>
+        <div><div class="c-title">B.Tech — Open Elective / Common</div><div class="c-sub">OE, AS, VE, HU — All Branches</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Open Elective</span><span class="tag">Maths-3/4</span><span class="tag">Human Values</span><span class="tag">Environment</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/btech-others-question-papers.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PG COURSES -->
+  <div class="group-title" data-g="pg">🎓 Postgraduate (PG) Courses</div>
+  <div class="grid" id="grid-pg">
+
+    <div class="card cp" data-k="mba master business administration management marketing finance hr">
+      <span class="new-tag">NEW</span>
+      <div class="card-head">
+        <div class="c-icon">💼</div>
+        <div><div class="c-title">MBA</div><div class="c-sub">Master of Business Administration • Sem 1–4</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Marketing</span><span class="tag">Finance</span><span class="tag">HR</span><span class="tag">Operations</span><span class="tag">MBA Integrated</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/mba.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/mba.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cb" data-k="mca master computer applications programming">
+      <span class="new-tag">NEW</span>
+      <div class="card-head">
+        <div class="c-icon">🖱️</div>
+        <div><div class="c-title">MCA</div><div class="c-sub">Master of Computer Applications • Sem 1–6 • 2017–2026</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Discrete Maths</span><span class="tag">DBMS</span><span class="tag">Python</span><span class="tag">Data Structures</span><span class="tag">Software Engg</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/mca.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/mca.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card co" data-k="mtech master technology engineering research">
+      <div class="card-head">
+        <div class="c-icon">🔬</div>
+        <div><div class="c-title">M.Tech</div><div class="c-sub">Master of Technology • Sem 1–4 • 2009–2025</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">CS</span><span class="tag">EC</span><span class="tag">ME</span><span class="tag">EE</span><span class="tag">BT</span><span class="tag">All Specializations</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/mtech.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/mtech.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card ct" data-k="mam master arts management business">
+      <div class="card-head">
+        <div class="c-icon">📊</div>
+        <div><div class="c-title">MAM</div><div class="c-sub">Master of Arts in Management • Sem 1–4</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Management</span><span class="tag">Business Maths</span><span class="tag">English</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/mam.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cr" data-k="march master architecture design urban planning">
+      <div class="card-head">
+        <div class="c-icon">🏛️</div>
+        <div><div class="c-title">M.Arch</div><div class="c-sub">Master of Architecture • Sem 1–4</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Urban Design</span><span class="tag">History</span><span class="tag">Thesis</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/march.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHARMACY -->
+  <div class="group-title" data-g="pharma">💊 Pharmacy Courses</div>
+  <div class="grid" id="grid-pharma">
+    <div class="card cg" data-k="bpharm bpharmacy pharmacy b pharm bachelor">
+      <span class="new-tag">NEW</span>
+      <div class="card-head">
+        <div class="c-icon">💊</div>
+        <div><div class="c-title">B.Pharm</div><div class="c-sub">Bachelor of Pharmacy • Sem 1–8 • 2018–2024</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Pharmaceutics</span><span class="tag">Pharmacology</span><span class="tag">Biochemistry</span><span class="tag">Pharmacognosy</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/bpharm.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/bpharm.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="card ct" data-k="mpharm mpharmacy master pharmacy m pharm">
+      <span class="new-tag">NEW</span>
+      <div class="card-head">
+        <div class="c-icon">🧫</div>
+        <div><div class="c-title">M.Pharm</div><div class="c-sub">Master of Pharmacy • Sem 1–4 • 2021–2026</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Drug Delivery</span><span class="tag">Medicinal Chem</span><span class="tag">Regulatory</span><span class="tag">Pharmacognosy</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/mpharmacy.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/mpharma.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARCH & DESIGN -->
+  <div class="group-title" data-g="arch">🏛️ Architecture, Design &amp; Hotel Management</div>
+  <div class="grid" id="grid-arch">
+    <div class="card cr" data-k="barch bachelor architecture design planning">
+      <div class="card-head"><div class="c-icon">🏗️</div>
+        <div><div class="c-title">B.Arch</div><div class="c-sub">Bachelor of Architecture • Sem 1–10</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Design Studio</span><span class="tag">Structures</span><span class="tag">History</span><span class="tag">Building Sci</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/barch.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/barch.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="card ck" data-k="bfa bachelor fine arts art painting sculpture">
+      <div class="card-head"><div class="c-icon">🎨</div>
+        <div><div class="c-title">BFA</div><div class="c-sub">Bachelor of Fine Arts • Sem 1–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Painting</span><span class="tag">Sculpture</span><span class="tag">Applied Arts</span><span class="tag">Printmaking</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/bfa.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/bfa.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="card ck" data-k="bfad bachelor fashion apparel design clothing">
+      <div class="card-head"><div class="c-icon">👗</div>
+        <div><div class="c-title">BFAD</div><div class="c-sub">Bachelor of Fashion &amp; Apparel Design • Sem 1–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Fashion Illustration</span><span class="tag">Textile</span><span class="tag">Pattern Making</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/bfad.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/bfad.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="card co" data-k="bhmct hotel management catering technology hospitality">
+      <div class="card-head"><div class="c-icon">🏨</div>
+        <div><div class="c-title">BHMCT</div><div class="c-sub">Hotel Mgmt. &amp; Catering Technology • Sem 1–8</div></div>
+      </div>
+      <div class="card-body">
+        <div class="tags"><span class="tag">Food Production</span><span class="tag">F&amp;B Service</span><span class="tag">Housekeeping</span><span class="tag">Front Office</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.com/bhmct.html" target="_blank">📥 aktuonline.com se Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktupapers.com/bhmct.html" target="_blank">📥 aktupapers.com se Download <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div id="noResult"><div class="nr-icon">🔍</div><p>Koi course nahi mila. Alag keyword try karo.</p></div>
+</div><!-- /main papers -->
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 2: SYLLABUS
+══════════════════════════════════ -->
+<div id="tab-syllabus" class="tab-panel">
+<div class="main">
+
+  <!-- OFFICIAL AKTU -->
+  <div class="group-title">🏛️ Official AKTU Syllabus — aktu.ac.in</div>
+  <div class="grid-lg">
+
+    <div class="syl-card cb">
+      <div class="card-head">
+        <div class="c-icon cb">📘</div>
+        <div><div class="c-title">B.Tech — All Branches Syllabus (Official)</div>
+        <div class="c-sub">2024–25 PDF • All Semesters • Aktu.ac.in se Direct</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">AKTU Official Syllabus Page (Sab Courses)</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 Download</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">AKTU Syllabus 2024–2025 (Latest)</span><a class="syl-dl" href="https://aktu.ac.in/syllabus%202024-2025.html" target="_blank">📥 Download</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">AKTU Official Website</span><a class="syl-dl" href="https://aktu.ac.in" target="_blank">🌐 Visit</a></div>
+      </div>
+    </div>
+
+    <div class="syl-card co">
+      <div class="card-head">
+        <div class="c-icon co">💻</div>
+        <div><div class="c-title">B.Tech CSE / IT Syllabus PDF</div>
+        <div class="c-sub">Computer Science & IT — Sem 1–8 • aktuhub.in se</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">B.Tech CSE/IT Full Syllabus (All Sem)</span><a class="syl-dl" href="https://aktuhub.in/aktu-cse-and-it-syllabus-pdfs/" target="_blank">📥 Download</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">AKTU All Courses Syllabus 2025</span><a class="syl-dl" href="https://aktuhub.in/aktu-syllabus-download-pdf-for-all-courses/" target="_blank">📥 Download</a></div>
+      </div>
+    </div>
+
+    <div class="syl-card cp">
+      <div class="card-head">
+        <div class="c-icon cp">💼</div>
+        <div><div class="c-title">MBA / MCA / M.Tech Syllabus PDF</div>
+        <div class="c-sub">PG Courses — Sem 1–4 • Official + Resources</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">MBA Syllabus (All Sem)</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 aktu.ac.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">MCA Syllabus 2025</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 aktu.ac.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">M.Tech Syllabus PDF</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 aktu.ac.in</a></div>
+      </div>
+    </div>
+
+    <div class="syl-card cg">
+      <div class="card-head">
+        <div class="c-icon cg">💊</div>
+        <div><div class="c-title">B.Pharm / M.Pharm Syllabus PDF</div>
+        <div class="c-sub">Pharmacy Courses — Sem 1–8 • Official PDF</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">B.Pharm Syllabus (All Sem)</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 aktu.ac.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">M.Pharm Syllabus PDF</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 aktu.ac.in</a></div>
+      </div>
+    </div>
+
+    <div class="syl-card cr">
+      <div class="card-head">
+        <div class="c-icon cr">🏗️</div>
+        <div><div class="c-title">B.Arch / BFA / BFAD / BHMCT Syllabus</div>
+        <div class="c-sub">Architecture & Design Courses • Official PDF</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">B.Arch Syllabus PDF</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 aktu.ac.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">BFA / BFAD Syllabus</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 aktu.ac.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">BHMCT Syllabus PDF</span><a class="syl-dl" href="https://aktu.ac.in/syllabus.html" target="_blank">📥 aktu.ac.in</a></div>
+      </div>
+    </div>
+
+    <div class="syl-card ct">
+      <div class="card-head">
+        <div class="c-icon ct">📋</div>
+        <div><div class="c-title">AKTU Syllabus — Third Party (Easy Download)</div>
+        <div class="c-sub">Well organized PDFs — aktuhub.in / aktuonline.in</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">AKTU Syllabus 2025 (All Courses)</span><a class="syl-dl" href="https://aktuhub.in/aktu-syllabus-download-pdf-for-all-courses/" target="_blank">📥 aktuhub.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">AKTU B.Tech Syllabus (Branch-wise)</span><a class="syl-dl" href="https://www.aktuonline.in/" target="_blank">📥 aktuonline.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">AKTU Carry Over + Old Syllabus</span><a class="syl-dl" href="https://www.aktupapers.com/btech.html" target="_blank">📥 aktupapers.com</a></div>
+      </div>
+    </div>
+
+  </div><!-- /grid-lg -->
+
+  <!-- aktupapers.com syllabus link -->
+  <div class="group-title" style="margin-top:44px">📄 aktupapers.com — Syllabus Section</div>
+  <div class="grid-lg">
+    <div class="syl-card co">
+      <div class="card-head">
+        <div class="c-icon co">📑</div>
+        <div><div class="c-title">AKTU Syllabus — aktupapers.com</div>
+        <div class="c-sub">B.Tech Syllabus + UPSEE Info + Carry-Over Papers</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">B.Tech Syllabus Section</span><a class="syl-dl" href="https://www.aktupapers.com/btech.html" target="_blank">📥 Download</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">MBA Syllabus &amp; Papers</span><a class="syl-dl" href="https://www.aktupapers.com/mba.html" target="_blank">📥 Download</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">MCA Syllabus &amp; Papers</span><a class="syl-dl" href="https://www.aktupapers.com/mca.html" target="_blank">📥 Download</a></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main syllabus -->
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 3: NOTES
+══════════════════════════════════ -->
+<div id="tab-notes" class="tab-panel">
+<div class="main">
+
+  <!-- B.TECH NOTES -->
+  <div class="group-title">📝 B.Tech Notes — Semester &amp; Branch Wise</div>
+  <div class="grid">
+
+    <div class="card cb">
+      <div class="card-head">
+        <div class="c-icon cb">📗</div>
+        <div><div class="c-title">B.Tech 1st Year Notes</div><div class="c-sub">All Branches • Maths, Physics, Chemistry, etc.</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source cb">notesgallery.com</div>
+        <div class="tags"><span class="tag">Maths-1</span><span class="tag">Physics</span><span class="tag">Chemistry</span><span class="tag">Electrical</span><span class="tag">Mechanical</span></div>
+        <a class="dl-btn" href="https://notesgallery.com/aktu-notes/aktu-1st-year-notes-2/" target="_blank">📥 Notes Download karo <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://www.aktuonline.in/" target="_blank">📥 aktuonline.in Notes <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card co">
+      <div class="card-head">
+        <div class="c-icon co">📙</div>
+        <div><div class="c-title">B.Tech 2nd Year Notes</div><div class="c-sub">CSE, ME, CE, ECE, EE — Sem 3 &amp; 4</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source co">notesgallery.com</div>
+        <div class="tags"><span class="tag">DSA</span><span class="tag">OOP</span><span class="tag">Maths-3</span><span class="tag">Thermodynamics</span><span class="tag">Circuits</span></div>
+        <a class="dl-btn" href="https://notesgallery.com/aktu-b-tech-2nd-year-free-study-materials/" target="_blank">📥 Notes Download karo <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cg">
+      <div class="card-head">
+        <div class="c-icon cg">📕</div>
+        <div><div class="c-title">B.Tech CSE/IT Notes</div><div class="c-sub">3rd &amp; 4th Year — All Subjects</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source cg">aktutor.org</div>
+        <div class="tags"><span class="tag">DBMS</span><span class="tag">OS</span><span class="tag">CN</span><span class="tag">Software Engg</span><span class="tag">TOC</span><span class="tag">Compiler</span></div>
+        <a class="dl-btn" href="https://aktutor.org/aktu-btech-cs-3rd-year-notes/" target="_blank">📥 CSE 3rd Year Notes <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://notesgallery.com/b-tech-aktu/" target="_blank">📥 Notes Gallery <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cy">
+      <div class="card-head">
+        <div class="c-icon cy">📒</div>
+        <div><div class="c-title">B.Tech All Branches Notes (AKTU Hub)</div><div class="c-sub">Complete Study Material — aktuhub.in</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source cy">aktuhub.in</div>
+        <div class="tags"><span class="tag">CSE</span><span class="tag">ME</span><span class="tag">CE</span><span class="tag">EC</span><span class="tag">EE</span><span class="tag">IT</span></div>
+        <a class="dl-btn" href="https://aktuhub.in/" target="_blank">📥 AKTU Hub — Notes <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card ct">
+      <div class="card-head">
+        <div class="c-icon ct">📓</div>
+        <div><div class="c-title">B.Tech Notes — aktuonline.in</div><div class="c-sub">Branch-wise Notes • B.Tech All Years</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source ct">aktuonline.in</div>
+        <div class="tags"><span class="tag">Sem 1–8</span><span class="tag">All Branches</span><span class="tag">Subject-wise</span><span class="tag">PDF Format</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.in/" target="_blank">📥 aktuonline.in se Notes <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cp">
+      <div class="card-head">
+        <div class="c-icon cp">📔</div>
+        <div><div class="c-title">B.Tech Quantum / Series Notes</div><div class="c-sub">Quantum Series PDF • AKTU Exam Focused</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source cp">aktuonline.in</div>
+        <div class="tags"><span class="tag">Quantum PDF</span><span class="tag">Short Notes</span><span class="tag">Important Q&amp;A</span><span class="tag">All Branches</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.in/" target="_blank">📥 Quantum PDF Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PG NOTES -->
+  <div class="group-title" style="margin-top:44px">📝 MBA / MCA / M.Tech Notes</div>
+  <div class="grid">
+
+    <div class="card cp">
+      <div class="card-head">
+        <div class="c-icon cp">💼</div>
+        <div><div class="c-title">MBA Notes — AKTU</div><div class="c-sub">All Semesters • BMB / KMBN Series</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source cp">aktuonline.in</div>
+        <div class="tags"><span class="tag">Marketing</span><span class="tag">Finance</span><span class="tag">HR</span><span class="tag">Business Analytics</span><span class="tag">Operations</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.in/" target="_blank">📥 MBA Notes Download <span class="arr">→</span></a>
+        <a class="dl-btn" style="margin-top:-2px" href="https://theintactone.com/2018/12/08/dr-a-p-j-abdul-kalam-technical-university-aktu-mba-notes/" target="_blank">📥 theintactone.com MBA Notes <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cb">
+      <div class="card-head">
+        <div class="c-icon cb">🖱️</div>
+        <div><div class="c-title">MCA Notes — AKTU</div><div class="c-sub">Sem 1–6 • KCA / BMC Series</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source cb">aktuonline.in</div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">DBMS</span><span class="tag">Data Structures</span><span class="tag">Discrete Maths</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.in/" target="_blank">📥 MCA Notes Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card co">
+      <div class="card-head">
+        <div class="c-icon co">🔬</div>
+        <div><div class="c-title">M.Tech Notes — AKTU</div><div class="c-sub">All Specializations • Sem 1–4</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source co">aktuhub.in</div>
+        <div class="tags"><span class="tag">CS</span><span class="tag">EC</span><span class="tag">ME</span><span class="tag">EE</span><span class="tag">Research Methods</span></div>
+        <a class="dl-btn" href="https://aktuhub.in/" target="_blank">📥 M.Tech Notes Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="card cg">
+      <div class="card-head">
+        <div class="c-icon cg">💊</div>
+        <div><div class="c-title">B.Pharm Notes — AKTU</div><div class="c-sub">Sem 1–8 • BP Series Subjects</div></div>
+      </div>
+      <div class="card-body">
+        <div class="note-source cg">aktuonline.in</div>
+        <div class="tags"><span class="tag">Pharmaceutics</span><span class="tag">Pharmacology</span><span class="tag">Pharmacognosy</span><span class="tag">Biochemistry</span></div>
+        <a class="dl-btn" href="https://www.aktuonline.in/" target="_blank">📥 B.Pharm Notes Download <span class="arr">→</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NOTES PORTAL LINKS -->
+  <div class="group-title" style="margin-top:44px">🌐 Best AKTU Notes Portals (All-in-One)</div>
+  <div class="grid-lg">
+    <div class="syl-card cb">
+      <div class="card-head">
+        <div class="c-icon cb">🌐</div>
+        <div><div class="c-title">aktuonline.in — Official Notes Portal</div>
+        <div class="c-sub">B.Tech, MBA, MCA, B.Pharm • Notes + PYQs + Syllabus + Quantum</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">All Notes (All Courses)</span><a class="syl-dl" href="https://www.aktuonline.in/" target="_blank">📥 Visit aktuonline.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">Syllabus Section</span><a class="syl-dl" href="https://www.aktuonline.in/" target="_blank">📋 Syllabus</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">PYQ Papers</span><a class="syl-dl" href="https://www.aktuonline.in/" target="_blank">📄 Papers</a></div>
+      </div>
+    </div>
+    <div class="syl-card cg">
+      <div class="card-head">
+        <div class="c-icon cg">🌿</div>
+        <div><div class="c-title">notesgallery.com — Notes Gallery</div>
+        <div class="c-sub">B.Tech All Years • Subject-wise Notes • Free PDF</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">All AKTU Notes</span><a class="syl-dl" href="https://notesgallery.com/aktu-notes/" target="_blank">📥 Visit notesgallery.com</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">1st Year Notes</span><a class="syl-dl" href="https://notesgallery.com/aktu-notes/aktu-1st-year-notes-2/" target="_blank">📥 1st Year</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">B.Tech 2nd Year Notes</span><a class="syl-dl" href="https://notesgallery.com/aktu-b-tech-2nd-year-free-study-materials/" target="_blank">📥 2nd Year</a></div>
+      </div>
+    </div>
+    <div class="syl-card ct">
+      <div class="card-head">
+        <div class="c-icon ct">🏫</div>
+        <div><div class="c-title">aktuhub.in — AKTU Hub</div>
+        <div class="c-sub">Syllabus + Notes + PYQs — All Courses Organized</div></div>
+      </div>
+      <div class="syl-links">
+        <div class="syl-row"><span class="syl-label">AKTU Hub Homepage</span><a class="syl-dl" href="https://aktuhub.in/" target="_blank">📥 Visit aktuhub.in</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">CSE/IT Syllabus PDF</span><a class="syl-dl" href="https://aktuhub.in/aktu-cse-and-it-syllabus-pdfs/" target="_blank">📥 CSE Syllabus</a></div>
+        <div class="divider"></div>
+        <div class="syl-row"><span class="syl-label">All Courses Syllabus</span><a class="syl-dl" href="https://aktuhub.in/aktu-syllabus-download-pdf-for-all-courses/" target="_blank">📥 All Syllabus</a></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main notes -->
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px">
+    <a href="https://www.aktupapers.com/" target="_blank">📄 aktupapers.com</a> &nbsp;|&nbsp;
+    <a href="https://www.aktuonline.com/" target="_blank">📄 aktuonline.com</a> &nbsp;|&nbsp;
+    <a href="https://aktu.ac.in" target="_blank">🏛️ aktu.ac.in (Official)</a> &nbsp;|&nbsp;
+    <a href="https://www.aktuonline.in/" target="_blank">📚 aktuonline.in</a> &nbsp;|&nbsp;
+    <a href="https://notesgallery.com/aktu-notes/" target="_blank">📝 notesgallery.com</a> &nbsp;|&nbsp;
+    <a href="https://aktuhub.in/" target="_blank">🏫 aktuhub.in</a>
+  </p>
+  <p style="color:var(--t3)">Sabhi resources FREE hain • No Login Required • Direct PDF Download</p>
+</footer>
+
+<script>
+// Tab switching
+function switchTab(id, btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+  document.getElementById('searchBox').value='';
+  filterAll();
+}
+
+// Search / filter
+function filterAll(){
+  const q = document.getElementById('searchBox').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.tab-panel.active .card, .tab-panel.active .syl-card');
+  let vis=0;
+  cards.forEach(c=>{
+    const txt=(c.dataset.k||'')+' '+(c.innerText||'');
+    if(!q||txt.toLowerCase().includes(q)){c.style.display='';vis++;}
+    else c.style.display='none';
+  });
+  document.getElementById('noResult').style.display=(vis===0&&q)?'block':'none';
+}
+</script>
+</body>
+</html>
